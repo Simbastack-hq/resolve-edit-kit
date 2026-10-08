@@ -10,7 +10,7 @@ cut and how to check it, how to give the person choices instead of guessing, how
 already watched, how to make motion graphics an agent can actually build, and the Resolve API traps that each cost
 an hour to find.
 
-It came out of editing a series of real YouTube videos this way. The latest one shows the whole process on screen:
+It came out of editing a series of real YouTube videos this way, at [SimbaStack](https://simbastack.com/). The latest one shows the whole process on screen:
 [I think I've solved procrastination](https://youtu.be/3mlRiF-LeMc), and there's a
 [write-up with numbers and what broke](https://blog.simbastack.com/claude-edited-my-youtube-videos-davinci-resolve).
 To be clear about what to expect: the result is a normal, decent video, not a great one. It saves a person who
@@ -69,6 +69,14 @@ footage -> words_from_whisper -> paper edit (edl_builder) -> tighten -> check_jo
 - The graphics look (fonts, colours) is one channel's. Change the tokens in `motion/lib/base.css`.
 - No logos are included. Add the ones you have the right to use (see `motion/lib/logos.js`).
 
+## Built by SimbaStack
+
+resolve-edit-kit is an open-source project from **[SimbaStack](https://simbastack.com/)**, an AI consulting and development studio. We build AI agents and the systems they work in: we help businesses figure out where AI actually fits in their operations, then build it, ship it and keep it working in production.
+
+This kit is a small example of how we work: an agent doing a real job end to end, with the human making the calls, and the lessons written down so the next run is faster. If you want something like this built for your company (agents, workflows, automation that removes a real bottleneck), get in touch: **[nj@simbastack.com](mailto:nj@simbastack.com)**.
+
+Issues and pull requests are welcome, especially Resolve API quirks we haven't hit yet.
+
 ## License
 
-MIT. Copyright (c) 2026 SimbaStack.
+MIT. See [LICENSE](LICENSE).
