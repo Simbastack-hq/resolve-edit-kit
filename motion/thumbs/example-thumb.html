@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- Thumbnail template: dark background with an accent glow, two big lines (one on an accent tag), a proof card,
+     and a cut-out of the person on the right (make it with scripts/person_cutout.py frame.png img/person.png --outline 23,
+     then point the <img> at img/person_ol.png). Keep it to 4 big words or fewer, never cover the face with text,
+     and don't repeat the title's words: the thumbnail tells the story, the title makes the promise. -->
+<link rel="stylesheet" href="../lib/base.css"><link rel="stylesheet" href="common.css">
+<style>
+body{background:#141210}
+.glow{left:900px;top:120px;width:900px;height:900px;background:var(--coral);opacity:.35}
+#l1{left:70px;top:70px;font-size:190px;color:#fff}
+#l2{left:60px;top:250px}
+#l2 span{display:inline-block;background:var(--coral);color:#fff;font-size:190px;padding:8px 30px 0;border-radius:22px;transform:rotate(-1.5deg);box-shadow:var(--shadow)}
+#proof{left:70px;top:640px;padding:22px 30px;display:flex;align-items:center;gap:24px;font:800 46px var(--ui)}
+#proof .ph{width:120px;height:120px;border-radius:24px;background:linear-gradient(135deg,#2a2622,#3a2a20);display:grid;place-items:center;color:#fff;font-size:64px}
+.subject{right:-40px;bottom:0;height:1030px}
+#ph{right:60px;bottom:0;width:640px;height:900px;border-radius:320px 320px 0 0;background:linear-gradient(180deg,#5a4a3e,#2b2420);display:grid;place-items:center;color:#cbbfb0;font:700 36px var(--ui)}
+</style></head><body>
+<div class="glow"></div><div class="grain"></div>
+<div id="l1" class="ttl">Big line</div>
+<div id="l2" class="ttl"><span>Payoff.</span></div>
+<div id="proof" class="abs card"><div class="ph">✓</div><div>One piece of real proof</div></div>
+<div id="ph" class="abs">put img/person_ol.png here</div>
+<!-- <img class="subject" src="img/person_ol.png"> -->
+</body></html>

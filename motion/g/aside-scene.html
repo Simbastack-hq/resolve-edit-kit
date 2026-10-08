@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- Exemplar ASIDE scene (opaque). For the part where the speaker talks to the agent instead of the audience
+     ("put that overlay here..."): the frame shrinks to the left and drains to black and white, then snaps back to
+     full colour on the line that turns back to the audience. An explanatory card can sit on top, in colour, on the
+     overlay track. Start and end the scene on existing cuts so any softness change hides in the cut.
+     Footage: python3 foot.py aside-scene <start s> <dur s> (or foot_from_timeline.py for an edited timeline). -->
+<link rel="stylesheet" href="../lib/base.css"><link rel="stylesheet" href="../lib/components.css">
+<script src="../lib/anim.js"></script><script src="../lib/components.js"></script>
+<style>
+#fr{left:0;top:0;width:1920px;height:1080px;background:linear-gradient(135deg,#6b7b5a,#2c2a24)}
+#fr img{transform-origin:50% 45%}
+</style></head><body>
+<div class="scenebg"></div><div class="grain"></div>
+<div id="fr" class="pipbox"><img id="foot"></div>
+<script>
+window.OPAQUE = true;
+window.DUR = window.DUR || 10.7;
+// back = when the speaker turns back to the audience ("and now I'm talking to you")
+const C = window.CUES || {back: 9.56};
+// window.FOOT = {dir: '../frames/aside-scene_foot', n: Math.round(DUR * 29.97)};
+const R = [84, 184, 1267, 713];   // 0.66 of the frame, leaving the right side for a card
+window.render = async t => {
+  await setFoot($('#foot'), t);
+  const a = P(t, 0, .55, 'inOutQuint'), b = P(t, C.back - .12, C.back + .43, 'inOutQuint');
+  const k = Math.min(a, 1 - b), el = $('#fr'), [x, y, w, h] = R;
+  el.style.left = mix(0, x, k) + 'px'; el.style.top = mix(0, y, k) + 'px';
+  el.style.width = mix(1920, w, k) + 'px'; el.style.height = mix(1080, h, k) + 'px';
+  el.style.borderRadius = mix(0, 28, k) + 'px';
+  el.style.boxShadow = `0 30px 80px rgba(0,0,0,${.55 * k}),0 0 0 ${3 * k}px rgba(255,255,255,${.85 * k})`;
+  const g = Math.min(P(t, .1, .7, 'outCubic'), 1 - b);           // colour drains a touch behind the move
+  $('#foot').style.filter = `grayscale(${g}) brightness(${1 - .1 * g}) contrast(${1 + .08 * g})`;
+  el.style.filter = $('#foot').getAttribute('src') ? '' : `grayscale(${g})`;
+  $('#foot').style.transform = `scale(${1 + .015 * k * clamp(t / 9)})`;
+};
+</script></body></html>

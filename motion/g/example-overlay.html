@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- Exemplar OVERLAY (transparent, rendered as ProRes 4444 with alpha, goes on a track above the footage).
+     A name lower-third, two tags, and a card in the top-right that pops in on a cue and leaves with a fade.
+     Real pages load their cues from cues/<id>.js, written by cues.py from the spoken words:
+       <script src="../cues/example-overlay.js"></script>
+     This one carries its own so it renders as-is: node render.mjs example-overlay --stills 0.5,1.5,3,5 -->
+<link rel="stylesheet" href="../lib/base.css"><script src="../lib/anim.js"></script>
+<style>
+#lt{left:84px;top:770px}
+#name{font-size:92px;background:#fff;color:var(--ink);padding:10px 26px 2px;border-radius:14px;box-shadow:var(--shadow);display:inline-block}
+#line{margin-top:14px;display:flex;gap:10px}
+#line .tag{font-size:40px;padding:9px 20px 5px;border-radius:12px}
+#line .tag.ink{background:#fff;color:var(--ink)}
+#card{right:84px;top:84px;width:520px;padding:26px 30px;transform-origin:100% 0}
+#card .kicker{color:var(--coral)}
+#card .t1{font-family:var(--display);font-weight:800;font-size:64px;text-transform:uppercase;line-height:1;margin-top:8px}
+#card .t2{font:600 30px var(--ui);color:#6b6258;margin-top:8px}
+#shine{position:absolute;inset:0;border-radius:26px;overflow:hidden;pointer-events:none}
+#shine i{position:absolute;top:-20%;bottom:-20%;width:90px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg)}
+</style></head><body>
+<div id="lt" class="abs"><div id="name" class="big">Your Name</div>
+ <div id="line"><span class="tag" id="l1">What you do</span><span class="tag ink" id="l2">Where you are</span></div></div>
+<div id="card" class="abs card"><div class="kicker">Today</div><div class="t1">One clear idea</div><div class="t2">A line that adds a fact</div><div id="shine"><i></i></div></div>
+<script>
+window.DUR = window.DUR || 6.0;
+const C = window.CUES || {name: .3, line: .8, card: 2.4, out: 6.0};
+window.render = t => {
+  // enter on a cue, leave before the end; life() handles the in/out and a slow drift
+  life($('#name'), t, C.name, C.out, {from: 'left', dist: 60, in: .5});
+  life($('#l1'), t, C.line, C.out - .05, {from: 'up', dist: 24, in: .45});
+  life($('#l2'), t, C.line + .12, C.out - .1, {from: 'up', dist: 24, in: .45});
+  life($('#card'), t, C.card, C.out, {from: 'pop', s0: .3, in: .55, drift: .03});
+  $('#shine i').style.left = mix(-120, 640, P(t, C.card + .5, C.card + 1.3, 'inOutCubic')) + 'px';
+};
+</script></body></html>

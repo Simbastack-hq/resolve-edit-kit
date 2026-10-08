@@ -1,0 +1,15 @@
+.browser .vp{position:relative;overflow:hidden}
+.browser .url .lock{font-size:15px}
+.browser .load{position:absolute;left:0;top:54px;height:4px;width:0;background:var(--coral)}
+.browser{position:relative}
+.file{display:inline-flex;align-items:center;gap:12px;background:#fff;color:var(--ink);border-radius:14px;padding:12px 20px 12px 14px;font:600 26px var(--mono);box-shadow:var(--shadow);white-space:nowrap}
+.file .fi{width:26px;height:32px;border-radius:5px;display:inline-block;clip-path:polygon(0 0,70% 0,100% 28%,100% 100%,0 100%)}
+.scenebg{position:absolute;inset:0;background:radial-gradient(1200px 700px at 70% 30%,#3a2a20 0%,#1a1614 55%,#110f0e 100%)}
+.pipbox{position:absolute;overflow:hidden;z-index:50}
+.pipbox img{width:100%;height:100%;object-fit:cover;display:block}
+.station{position:absolute;display:flex;flex-direction:column;align-items:center;gap:16px}
+.station .lab{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:42px;color:var(--cream);letter-spacing:.02em;text-align:center;line-height:.95}
+.station .sub{font:600 24px var(--ui);color:#b8ada0;text-align:center}
+.ldot{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(47,184,111,.25)}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:8px 18px;font:800 22px var(--ui);letter-spacing:.08em;text-transform:uppercase}
+.pill.live{background:#e7f8ee;color:#16804a}

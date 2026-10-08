@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- Exemplar SCENE (opaque, rendered as ProRes 422 HQ, replaces the footage for its length).
+     The speaker's frame shrinks into a picture-in-picture at the bottom-left while a card explains the point,
+     then grows back to full frame. Extract the matching footage first so the hand-off is seamless:
+       python3 foot.py example-pip-scene <start s> <dur s>   ->  frames/example-pip-scene_foot/
+     Without those frames it renders a placeholder, so: node render.mjs example-pip-scene --stills 0.2,1,3,5.6 -->
+<link rel="stylesheet" href="../lib/base.css"><link rel="stylesheet" href="../lib/components.css">
+<script src="../lib/anim.js"></script><script src="../lib/components.js"></script>
+<style>
+#fr{left:0;top:0;width:1920px;height:1080px;background:linear-gradient(135deg,#3a2a20,#1a1614)}
+#title{left:700px;top:150px;width:1120px}
+#title .kicker{color:var(--coral);font-size:22px}
+#title .big{color:var(--cream);font-size:96px;margin-top:10px}
+.row{left:700px;width:1100px;padding:26px 32px;display:flex;align-items:center;gap:22px;font:700 44px var(--ui)}
+.row .n{width:64px;height:64px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font:800 36px var(--ui)}
+#r1{top:400px}#r2{top:560px}#r3{top:720px}
+</style></head><body class="scene">
+<div class="scenebg"></div><div class="grain"></div>
+<div id="title" class="abs"><div class="kicker">How it works</div><div class="big">Three steps</div></div>
+<div id="r1" class="abs row card dark"><span class="n">1</span>Record everything, mistakes and all</div>
+<div id="r2" class="abs row card dark"><span class="n">2</span>Tell the agent what you want</div>
+<div id="r3" class="abs row card dark"><span class="n">3</span>Pick between A and B</div>
+<div id="fr" class="pipbox"><img id="foot"></div>
+<script>
+window.OPAQUE = true;
+window.DUR = window.DUR || 6.0;
+const C = window.CUES || {in: 0, title: .5, r1: 1.2, r2: 2.0, r3: 2.8, end: 6.0};
+// window.FOOT = {dir: '../frames/example-pip-scene_foot', n: Math.round(DUR * 29.97)};
+window.render = async t => {
+  await setFoot($('#foot'), t);
+  pip($('#fr'), t, C.in, C.end, [70, 700, 560, 315], .6);       // full frame -> PiP -> full frame
+  life($('#title'), t, C.title, C.end - .5, {from: 'up', dist: 40, in: .5});
+  ['r1', 'r2', 'r3'].forEach(id => life($('#' + id), t, C[id], C.end - .5, {from: 'right', dist: 80, in: .5}));
+};
+</script></body></html>

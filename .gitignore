@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+node_modules/
+motion/frames/
+motion/out/
+motion/cues/
+motion/kit.json
+motion/thumbs/out/
+motion/thumbs/img/
+.DS_Store

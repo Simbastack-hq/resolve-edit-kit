@@ -1,0 +1,7 @@
+{
+  "footage_dir": "/path/to/my-video/footage",
+  "edl": "/path/to/my-video/edit/edl.json",
+  "words": "/path/to/my-video/edit/words.json",
+  "gfx_out": "/path/to/my-video/edit/gfx",
+  "fps": 29.97
+}

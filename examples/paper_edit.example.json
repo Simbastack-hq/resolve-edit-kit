@@ -1,0 +1,19 @@
+{
+  "pad_pre": 4,
+  "pad_post": 6,
+  "split_gap": 18,
+  "sections": [
+    {"label": "Hook", "clip": "A002.mp4", "words": [[0, 21]]},
+    {"label": "Who I am", "clip": "A001.mp4", "words": [[85, 115], [131, 166]]},
+    {"label": "The problem", "clip": "A001.mp4", "words": [[208, 259], [263, 300]]},
+    {"label": "Screen demo", "gap": 90},
+    {"label": "Pickup", "clip": "P001.mp4", "frames": [[45, 396]], "txt": "the line recorded later"},
+    {"label": "Close", "clip": "A003.mp4", "words": [[924, 944], [954, 993]]}
+  ],
+  "fixes": [
+    {"clip": "A001.mp4", "s": 2537, "replace": [[2537, 2688]], "note": "drop the trailing 'like'"}
+  ],
+  "alts": [
+    {"label": "ALT hook", "clip": "A001.mp4", "words": [[5, 30]], "align": "Hook"}
+  ]
+}

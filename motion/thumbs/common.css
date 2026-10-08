@@ -1,0 +1,11 @@
+html,body{width:1920px;height:1080px;overflow:hidden}
+.subject{position:absolute;filter:drop-shadow(0 30px 50px rgba(0,0,0,.45))}
+.ttl{position:absolute;font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.86;letter-spacing:-.005em}
+.pill{position:absolute;display:inline-flex;align-items:center;gap:16px;border-radius:999px;font:800 54px var(--ui);padding:16px 36px 16px 22px;box-shadow:var(--shadow);white-space:nowrap}
+.pill .ck{width:58px;height:58px;border-radius:50%;background:#fff;color:var(--green);display:grid;place-items:center;font-size:40px}
+.pill.green{background:var(--green);color:#fff}
+.grain{position:absolute;inset:0;opacity:.06;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.9'/></svg>")}
+.phone{position:absolute;width:360px;height:740px;border-radius:58px;background:#111;padding:16px;box-shadow:0 40px 80px rgba(0,0,0,.6),inset 0 0 0 3px #333}
+.phone .scr{width:100%;height:100%;border-radius:44px;overflow:hidden;background:#fff}
+.phone .scr img{width:100%;display:block}
+.phone .isl{position:absolute;top:30px;left:50%;transform:translateX(-50%);width:110px;height:32px;border-radius:20px;background:#111}

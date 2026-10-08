@@ -1,0 +1,7 @@
+{
+  "name": "resolve-edit-kit-motion",
+  "private": true,
+  "type": "module",
+  "description": "HTML/SVG motion graphics rendered to ProRes for DaVinci Resolve",
+  "dependencies": { "playwright-core": "^1.48.0" }
+}

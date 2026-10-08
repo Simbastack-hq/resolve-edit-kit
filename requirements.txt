@@ -1,0 +1,5 @@
+numpy
+Pillow
+# Whisper: one of
+mlx-whisper; sys_platform == "darwin" and platform_machine == "arm64"
+# openai-whisper
